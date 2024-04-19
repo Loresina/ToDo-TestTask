@@ -1,11 +1,39 @@
-import React from "react";
+import { useForm, type SubmitHandler } from "react-hook-form";
+
+import { useAppDispatch } from "../../../app/hooks";
+import { addTask } from "../../../app/store/toDoSlice";
+
+interface ToDoForm {
+  task: string;
+}
 
 export const Header = (): React.JSX.Element => {
+  const dispatch = useAppDispatch();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<ToDoForm>();
+
+  const submit: SubmitHandler<ToDoForm> = async (data) => {
+    console.log(data);
+    dispatch(addTask({ task: data.task, status: "active" }));
+    reset({ task: "" });
+  };
+
   return (
     <header>
       <h1>todos</h1>
 
-      <input type="text" placeholder="What heeds to be done?" />
+      <form onSubmit={handleSubmit(submit)}>
+        <input
+          type="text"
+          placeholder="What heeds to be done?"
+          {...register("task", { required: true })}
+        />
+        {errors.task !== undefined && <span>This field is required</span>}
+      </form>
     </header>
   );
 };
