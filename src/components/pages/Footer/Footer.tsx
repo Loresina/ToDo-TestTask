@@ -1,12 +1,18 @@
-export const Footer = () => {
+import { Link } from "react-router-dom";
+
+export const Footer = (): React.JSX.Element => {
   return (
     <footer>
       <span>count to do</span>
 
-      <button type="button">All</button>
-      <button type="button">Active</button>
-      <button type="button">Completed</button>
-      <button type="button">Clear completed</button>
+      <nav className="footer-nav">
+        <Link to="/" type="button">
+          All
+        </Link>
+        <Link to="/active">Active</Link>
+        <Link to="/completed">Completed</Link>
+        <button type="button">Clear completed</button>
+      </nav>
     </footer>
   );
 };
