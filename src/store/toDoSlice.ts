@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface ToDoStateItem {
   task: string;
-  status: string;
+  active: boolean;
 }
 
 interface ToDoState {
@@ -18,11 +18,14 @@ const toDoSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, action) => {
-      console.log("Добавить задачу", action);
       state.toDoList = [...state.toDoList, action.payload];
     },
-    completeTask: (state, action) => {
-      console.log("Завершить задачу");
+    setActive: (state, action) => {
+      state.toDoList = state.toDoList.map((oneTask) => {
+        return oneTask.task === action.payload.task
+          ? { task: oneTask.task, active: !oneTask.active }
+          : oneTask;
+      });
     },
     delCompletedTasks: (state, action) => {
       console.log("Удалить все завершенные задачи");
@@ -30,5 +33,5 @@ const toDoSlice = createSlice({
   },
 });
 
-export const { addTask, completeTask, delCompletedTasks } = toDoSlice.actions;
+export const { addTask, setActive, delCompletedTasks } = toDoSlice.actions;
 export default toDoSlice.reducer;

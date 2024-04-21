@@ -17,8 +17,7 @@ export const Header = (): React.JSX.Element => {
   } = useForm<ToDoForm>();
 
   const submit: SubmitHandler<ToDoForm> = async (data) => {
-    console.log(data);
-    dispatch(addTask({ task: data.task, status: "active" }));
+    dispatch(addTask({ task: data.task, active: true }));
     reset({ task: "" });
   };
 
