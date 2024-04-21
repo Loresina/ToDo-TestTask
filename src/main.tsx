@@ -3,8 +3,8 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 
-import App from "./App";
-import store from "./app/store/store";
+import App from "./app/App";
+import appStore from "./store/store";
 import "./index.css";
 
 const container = document.getElementById("root");
@@ -14,7 +14,7 @@ if (container) {
 
   root.render(
     <React.StrictMode>
-      <Provider store={store}>
+      <Provider store={appStore}>
         <App />
       </Provider>
     </React.StrictMode>,

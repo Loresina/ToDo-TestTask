@@ -1,7 +1,7 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
 
-import { useAppDispatch } from "../../../app/hooks";
-import { addTask } from "../../../app/store/toDoSlice";
+import { useAppDispatch } from "../../../hooks";
+import { addTask } from "../../../store/toDoSlice";
 
 interface ToDoForm {
   task: string;

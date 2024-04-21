@@ -1,4 +1,4 @@
-import { useAppSelector } from "../../../app/hooks";
+import { useAppSelector } from "../../../hooks";
 import { ToDoList } from "../../templates/ToDoList";
 
 export const AllToDo = (): React.JSX.Element => {
