@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
 
+import { useAppDispatch } from "../../../hooks";
+import { deleteCompleted } from "../../../store/toDoSlice";
+
 export const Footer = (): React.JSX.Element => {
+  const dispatch = useAppDispatch();
+  const clearCompleted = (): void => {
+    dispatch(deleteCompleted());
+  };
+
   return (
     <footer>
       <span>count to do</span>
@@ -11,7 +19,14 @@ export const Footer = (): React.JSX.Element => {
         </Link>
         <Link to="/active">Active</Link>
         <Link to="/completed">Completed</Link>
-        <button type="button">Clear completed</button>
+        <button
+          type="button"
+          onClick={() => {
+            clearCompleted();
+          }}
+        >
+          Clear completed
+        </button>
       </nav>
     </footer>
   );

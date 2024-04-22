@@ -27,11 +27,11 @@ const toDoSlice = createSlice({
           : oneTask;
       });
     },
-    delCompletedTasks: (state, action) => {
-      console.log("Удалить все завершенные задачи");
+    deleteCompleted: (state) => {
+      state.toDoList = state.toDoList.filter((oneTask) => oneTask.active);
     },
   },
 });
 
-export const { addTask, setActive, delCompletedTasks } = toDoSlice.actions;
+export const { addTask, setActive, deleteCompleted } = toDoSlice.actions;
 export default toDoSlice.reducer;

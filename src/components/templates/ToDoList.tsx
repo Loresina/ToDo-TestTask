@@ -61,7 +61,7 @@ export const ToDoList = ({
               <input
                 id={item.task}
                 type="checkbox"
-                defaultChecked={item.active}
+                defaultChecked={!item.active}
                 onChange={() => {
                   turnTask(item);
                 }}
