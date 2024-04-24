@@ -1,5 +1,6 @@
 import React from "react";
 
+import { StyledEngineProvider } from "@mui/material/styles";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 
@@ -13,11 +14,13 @@ if (container) {
   const root = createRoot(container);
 
   root.render(
-    <React.StrictMode>
-      <Provider store={appStore}>
-        <App />
-      </Provider>
-    </React.StrictMode>,
+    <StyledEngineProvider injectFirst>
+      <React.StrictMode>
+        <Provider store={appStore}>
+          <App />
+        </Provider>
+      </React.StrictMode>
+    </StyledEngineProvider>,
   );
 } else {
   throw new Error(

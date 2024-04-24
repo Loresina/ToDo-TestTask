@@ -2,6 +2,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 
 import { useAppDispatch } from "../../../hooks";
 import { addTask } from "../../../store/toDoSlice";
+import { TypographyHeader } from "../../UI";
 
 interface ToDoForm {
   task: string;
@@ -23,7 +24,7 @@ export const Header = (): React.JSX.Element => {
 
   return (
     <header>
-      <h1>todos</h1>
+      <TypographyHeader>todos</TypographyHeader>
 
       <form onSubmit={handleSubmit(submit)}>
         <input

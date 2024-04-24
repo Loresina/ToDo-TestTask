@@ -15,10 +15,6 @@ const listType: ListType = {
   all: "запланированных",
 };
 
-// const renderAll = () => {
-//   return
-// }
-
 export const ToDoList = ({
   type,
 }: {
@@ -26,8 +22,6 @@ export const ToDoList = ({
 }): React.JSX.Element => {
   const renderList = useAppSelector((state) => state.toDo.toDoList);
   const dispatch = useAppDispatch();
-
-  console.log("renderList", renderList, type);
 
   if (renderList.length === 0) {
     return (
