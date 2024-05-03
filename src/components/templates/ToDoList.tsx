@@ -1,3 +1,8 @@
+import { CheckCircle, RadioButtonUnchecked } from "@mui/icons-material";
+import { Checkbox } from "@mui/material";
+import List from "@mui/material/List";
+
+import styles from "./ToDoList.module.css";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setActive } from "../../store/toDoSlice";
 
@@ -25,7 +30,7 @@ export const ToDoList = ({
 
   if (renderList.length === 0) {
     return (
-      <main>
+      <main className={styles.todo}>
         <h2>Пока нет {listType[type]} дел.</h2>
       </main>
     );
@@ -36,9 +41,9 @@ export const ToDoList = ({
   };
 
   return (
-    <main>
+    <main className={styles.todo}>
       <h2>Список {listType[type]} дел.</h2>
-      <ul>
+      <List>
         {renderList
           .filter((item) => {
             switch (type) {
@@ -50,20 +55,22 @@ export const ToDoList = ({
                 return item;
             }
           })
+          .reverse()
           .map((item) => (
-            <li key={item.task}>
-              <input
+            <div key={item.task}>
+              <Checkbox
+                icon={<RadioButtonUnchecked />}
+                checkedIcon={<CheckCircle />}
                 id={item.task}
-                type="checkbox"
-                defaultChecked={!item.active}
+                checked={!item.active}
                 onChange={() => {
                   turnTask(item);
                 }}
               />
               <label htmlFor={item.task}>{item.task}</label>
-            </li>
+            </div>
           ))}
-      </ul>
+      </List>
     </main>
   );
 };

@@ -1,7 +1,13 @@
 .text {
-    color: var(--gold-dark);
-    background: linear-gradient(to right, var(--gold-dark) 0%, var(--gold-light) 10%, var(--gold-yellow) 25%, var(--white) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  font-size: 8rem;
+  color: var(--gold-dark);
+  background: linear-gradient(
+    to right,
+    var(--gold-dark) 0%,
+    var(--gold-light) 50%,
+    var(--gold-yellow) 95%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

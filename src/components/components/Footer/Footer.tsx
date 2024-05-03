@@ -27,8 +27,8 @@ export const Footer = (): React.JSX.Element => {
   };
 
   return (
-    <footer>
-      <nav className={styles.footer}>
+    <footer className={styles.footer}>
+      <nav className={styles.footerItem}>
         <Button
           onClick={() => {
             navigateButton("/");
@@ -58,20 +58,22 @@ export const Footer = (): React.JSX.Element => {
         </Button>
       </nav>
 
-      <InfoChip
-        icon={<FormatListBulletedRounded />}
-        label={`total tasks ${renderList.length}`}
-      />
+      <div className={styles.footerItem}>
+        <InfoChip
+          icon={<FormatListBulletedRounded />}
+          label={`total tasks ${renderList.length}`}
+        />
 
-      <Button
-        onClick={() => {
-          clearCompleted();
-        }}
-        endIcon={<DeleteForeverRounded />}
-        className={styles.button}
-      >
-        Clear completed
-      </Button>
+        <Button
+          onClick={() => {
+            clearCompleted();
+          }}
+          endIcon={<DeleteForeverRounded />}
+          className={styles.button}
+        >
+          Clear completed
+        </Button>
+      </div>
     </footer>
   );
 };
