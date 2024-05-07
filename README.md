@@ -1,27 +1,21 @@
-# vite-template-redux
+# TODOS
 
-Uses [Vite](https://vitejs.dev/), [Vitest](https://vitest.dev/), and [React Testing Library](https://github.com/testing-library/react-testing-library) to create a modern [React](https://react.dev/) app compatible with [Create React App](https://create-react-app.dev/)
+<a href="https://codeclimate.com/github/Loresina/toDo-TestTask/maintainability"><img src="https://api.codeclimate.com/v1/badges/de94e652013e3d599602/maintainability" /></a>  
 
-```sh
-npx degit reduxjs/redux-templates/packages/vite-template-redux my-app
-```
 
-## Goals
-
-- Easy migration from Create React App or Vite
-- As beginner friendly as Create React App
-- Optimized performance compared to Create React App
-- Customizable without ejecting
-
-## Scripts
-
-- `dev`/`start` - start dev server and open browser
-- `build` - build for production
-- `preview` - locally preview production build
-- `test` - launch test runner
-
-## Inspiration
-
-- [Create React App](https://github.com/facebook/create-react-app/tree/main/packages/cra-template)
-- [Vite](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react)
-- [Vitest](https://github.com/vitest-dev/vitest/tree/main/examples/react-testing-lib)
+**TODOS** is a mini app for planning with stylish design.  
+And what you can do with it:
+​
+* add tasks
+* mark tasks as completed
+* view active, completed and all tasks in separate lists
+* delete completed tasks
+​
+## Used
+​
+- Vite-template-redux
+- Material UI 
+- Type Script
+- Redux Toolkit
+- React Testing Library
+- Сodeclimate
