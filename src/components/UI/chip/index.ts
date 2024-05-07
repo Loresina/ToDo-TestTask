@@ -1,1 +1,1 @@
-export type { default } from "./InfoChip";
+export { default } from "./InfoChip";
