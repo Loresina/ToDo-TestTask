@@ -15,9 +15,9 @@ interface ListType {
 type ListKeyType = keyof ListType;
 
 const listType: ListType = {
-  active: "активных",
-  completed: "выполненных",
-  all: "запланированных",
+  active: "active",
+  completed: "completed",
+  all: "planned",
 };
 
 export const ToDoList = ({
@@ -31,7 +31,7 @@ export const ToDoList = ({
   if (renderList.length === 0) {
     return (
       <main className={styles.todo}>
-        <h2>Пока нет {listType[type]} дел.</h2>
+        <h2>No {listType[type]} tasks yet.</h2>
         <List className={styles.list} />
       </main>
     );

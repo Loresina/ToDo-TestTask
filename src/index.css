@@ -6,6 +6,7 @@
   --gold-dark: #b8860b;
   --blue: #1976d2;
   --grey: rgb(87, 87, 87);
+  --grey-light: rgb(190, 190, 190);
 }
 
 #root {
@@ -16,7 +17,6 @@
 }
 
 body {
-  /* position: relative; */
   margin: auto;
   background: var(--light);
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

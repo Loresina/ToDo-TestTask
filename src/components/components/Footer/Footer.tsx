@@ -28,6 +28,7 @@ export const Footer = (): React.JSX.Element => {
 
   return (
     <footer className={styles.footer}>
+      <div className={styles.footerBorder}></div>
       <nav className={styles.footerItem}>
         <Button
           onClick={() => {
