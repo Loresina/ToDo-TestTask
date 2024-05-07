@@ -1,4 +1,5 @@
 import { useForm, type SubmitHandler, Controller } from "react-hook-form";
+import { v4 as uuidv4 } from "uuid";
 
 import styles from "./Header.module.css";
 import { useAppDispatch } from "../../../hooks";
@@ -22,8 +23,8 @@ export const Header = (): React.JSX.Element => {
     },
   });
 
-  const submit: SubmitHandler<ToDoForm> = async (data) => {
-    dispatch(addTask({ task: data.task, active: true }));
+  const submit: SubmitHandler<ToDoForm> = async (data): Promise<void> => {
+    dispatch(addTask({ task: data.task, id: uuidv4(), active: true }));
     reset({ task: "" });
   };
 

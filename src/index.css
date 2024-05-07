@@ -1,10 +1,11 @@
 :root {
-  --white: #ffffff;
-  --light: #fffffff1;
-  --gold-yellow: #ffd700;
+  --white: white;
+  --light: #ffffffb0;
+  --gold-yellow: #ffd900;
   --gold-light: #cfb53b;
   --gold-dark: #b8860b;
   --blue: #1976d2;
+  --grey: rgb(87, 87, 87);
 }
 
 #root {

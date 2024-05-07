@@ -32,18 +32,23 @@ export const ToDoList = ({
     return (
       <main className={styles.todo}>
         <h2>Пока нет {listType[type]} дел.</h2>
+        <List className={styles.list} />
       </main>
     );
   }
 
-  const turnTask = (item: { task: string; active: boolean }): void => {
-    dispatch(setActive({ task: item.task, active: !item.active }));
+  const turnTask = (item: {
+    task: string;
+    id: string;
+    active: boolean;
+  }): void => {
+    dispatch(setActive({ task: item.task, id: item.id, active: !item.active }));
   };
 
   return (
     <main className={styles.todo}>
       <h2>Список {listType[type]} дел.</h2>
-      <List>
+      <List className={styles.list}>
         {renderList
           .filter((item) => {
             switch (type) {
@@ -57,7 +62,7 @@ export const ToDoList = ({
           })
           .reverse()
           .map((item) => (
-            <div key={item.task}>
+            <li key={item.id}>
               <Checkbox
                 icon={<RadioButtonUnchecked />}
                 checkedIcon={<CheckCircle />}
@@ -68,7 +73,7 @@ export const ToDoList = ({
                 }}
               />
               <label htmlFor={item.task}>{item.task}</label>
-            </div>
+            </li>
           ))}
       </List>
     </main>

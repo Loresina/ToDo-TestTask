@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface ToDoStateItem {
   task: string;
+  id: string;
   active: boolean;
 }
 
@@ -22,8 +23,8 @@ const toDoSlice = createSlice({
     },
     setActive: (state, action) => {
       state.toDoList = state.toDoList.map((oneTask) => {
-        return oneTask.task === action.payload.task
-          ? { task: oneTask.task, active: !oneTask.active }
+        return oneTask.id === action.payload.id
+          ? { task: oneTask.task, id: oneTask.id, active: !oneTask.active }
           : oneTask;
       });
     },
