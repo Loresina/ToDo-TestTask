@@ -47,7 +47,7 @@ export const ToDoList = ({
 
   return (
     <main className={styles.todo}>
-      <h2>Список {listType[type]} дел.</h2>
+      <h2>list of {listType[type]} tasks.</h2>
       <List className={styles.list}>
         {renderList
           .filter((item) => {
