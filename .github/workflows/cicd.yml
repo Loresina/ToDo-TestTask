@@ -42,3 +42,6 @@ jobs:
         with:
           coverageCommand: npm run test
           debug: true
+          coverageLocations: |
+            ${{github.workspace}}/frontend/src/tests/coverage/lcov.info:lcov
+
