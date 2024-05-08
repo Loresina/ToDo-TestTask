@@ -36,9 +36,7 @@ jobs:
       - name: Test
         run: npm run test
       - name: Test & publish code coverage
-        run: |
-          bash <(curl https://codecov.io/bash) -f "coverage/*.info"
-        shell: bash
+        uses: paambaati/codeclimate-action@v6.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
