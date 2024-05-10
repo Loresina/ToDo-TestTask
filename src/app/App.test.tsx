@@ -37,9 +37,10 @@ describe("Render of each component", () => {
       screen.getByRole("button", { name: "Clear completed" }),
     ).toBeInTheDocument();
 
-    expect(
-      screen.getByRole("chip", { value: "total tasks 0" }),
-    ).toBeInTheDocument();
+    const chipText = screen.getByText("total tasks 0", {
+      selector: '[role="chip"] span',
+    });
+    expect(chipText).toBeInTheDocument();
   });
 });
 
@@ -80,12 +81,10 @@ describe("Interaction with the input field", () => {
       ),
     });
 
-    const input = screen.getByRole("textbox");
+    expect(screen.getByPlaceholderText("add task")).toBeInTheDocument();
 
+    const input = screen.getByRole("textbox");
     await userEvent.click(input);
-    expect(
-      screen.getByRole("textbox", { value: "add task" }),
-    ).toBeInTheDocument();
 
     await userEvent.type(screen.getByRole("textbox"), "Task one");
     await userEvent.type(input, "{enter}");
@@ -97,7 +96,9 @@ describe("Interaction with the input field", () => {
     expect(screen.getByText("Task one")).toBeInTheDocument();
 
     expect(
-      screen.getByRole("chip", { value: "total tasks 1" }),
+      screen.getByText("total tasks 1", {
+        selector: '[role="chip"] span',
+      }),
     ).toBeInTheDocument();
 
     await userEvent.type(screen.getByRole("textbox"), "Task two");
@@ -109,7 +110,9 @@ describe("Interaction with the input field", () => {
     expect(screen.getByText("Task three")).toBeInTheDocument();
 
     expect(
-      screen.getByRole("chip", { value: "total tasks 3" }),
+      screen.getByText("total tasks 3", {
+        selector: '[role="chip"] span',
+      }),
     ).toBeInTheDocument();
   });
 });
