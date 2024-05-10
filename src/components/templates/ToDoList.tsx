@@ -9,6 +9,7 @@ import { setActive } from "../../store/toDoSlice";
 interface ListType {
   active: string;
   completed: string;
+  planned: string;
   all: string;
 }
 
@@ -17,7 +18,8 @@ type ListKeyType = keyof ListType;
 const listType: ListType = {
   active: "active",
   completed: "completed",
-  all: "planned",
+  planned: "planned",
+  all: "all",
 };
 
 export const ToDoList = ({
@@ -31,7 +33,7 @@ export const ToDoList = ({
   if (renderList.length === 0) {
     return (
       <main className={styles.todo}>
-        <h2>No {listType[type]} tasks yet.</h2>
+        <h2>No {listType[type]} tasks yet</h2>
         <List className={styles.list} />
       </main>
     );
@@ -47,7 +49,7 @@ export const ToDoList = ({
 
   return (
     <main className={styles.todo}>
-      <h2>list of {listType[type]} tasks.</h2>
+      <h2>List of {listType[type]} tasks</h2>
       <List className={styles.list}>
         {renderList
           .filter((item) => {

@@ -1,5 +1,11 @@
+import { useAppSelector } from "../../../../hooks";
 import { ToDoList } from "../../../templates/ToDoList";
 
 export const AllToDo = (): React.JSX.Element => {
-  return <ToDoList type="all" />;
+  const renderList = useAppSelector((state) => state.toDo.toDoList);
+  return renderList.length === 0 ? (
+    <ToDoList type="planned" />
+  ) : (
+    <ToDoList type="all" />
+  );
 };
