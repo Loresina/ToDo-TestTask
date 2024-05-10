@@ -61,6 +61,7 @@ export const Footer = (): React.JSX.Element => {
 
       <div className={styles.footerItem}>
         <InfoChip
+          role="chip"
           icon={<FormatListBulletedRounded />}
           label={`total tasks ${renderList.length}`}
         />
